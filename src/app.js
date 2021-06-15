@@ -3,12 +3,13 @@ const cors = require('cors');
 const morgan = require('morgan');
 const createError = require('http-errors');
 const favicon = require('serve-favicon');
-const mongoose = require('mongoose');
 const path = require('path');
 const methodOverrie = require('method-override');
 const session = require('express-session');
 
+// initializations
 const app = express();
+require('./database');
 
 const port = 9000 || process.env.PORT;
 

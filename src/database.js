@@ -7,5 +7,13 @@ mongoose.connect('mongodb://localhost/crud-login', {
     useFindAndModify: false,
     useUnifiedTopology: true
 })
-    .then(db => console.log('db connected'))
-    .catch(err => console.log(err));
+
+var db = mongoose.connection
+
+db.on('error', function(err){
+    console.log('connection error', err)
+})
+
+db.once('open', function(){
+    console.log('Connection to DB successful')
+})
